@@ -95,18 +95,14 @@
 }
 
 button {
-    width: 50%;
+    width: 40%;
     height: 60px;
-    background-color: #4169e1;
+    background-color: #41e186;
     color: #ffffff;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 30px;
-}
-
-button:hover{
-    background: #00008b;
 }
 
 .err_message {

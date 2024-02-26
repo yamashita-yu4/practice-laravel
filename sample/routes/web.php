@@ -34,3 +34,10 @@ Route::post('/login', [App\Http\Controllers\LoginController::class, 'authenticat
 Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
+
+Route::get('/edit', [App\http\Controllers\ArticleController::class, 'index'])
+    ->name('edit.index');
+Route::get('/create', [App\Http\Controllers\ArticleController::class, 'create'])
+    ->name('edit.create');
+Route::post('/articles', [App\http\Controllers\ArticleController::class, 'store'])
+    ->name('edit.store');
