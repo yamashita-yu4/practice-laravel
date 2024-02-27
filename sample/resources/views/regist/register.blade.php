@@ -7,6 +7,7 @@
     <title>ユーザー登録画面</title>
 </head>
 <body>
+    <h2 class="title">ユーザー登録</h2>
 <form name="registform" action="/register" method="post" id="registform">
     {{ csrf_field() }}
     <div class="cp_iptxt">
