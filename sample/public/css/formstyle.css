@@ -112,3 +112,18 @@ button {
 .err_message {
     color: red;
 }
+
+.example{
+    display: block;
+    width: 250px;
+    padding: 15px 0;
+    margin: auto;
+    background: #4169e1;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 30px;
+}
+.example:hover{
+    background: #00008b;
+}
