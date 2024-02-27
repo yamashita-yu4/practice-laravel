@@ -8,6 +8,7 @@
 </head>
 <body>
 <p><a href="/create" class="example">新規投稿</a></p>
+<a href="/home" class="example">ホーム</a>
     <h2 class="title">投稿記事の一覧</h2>
     @foreach ($articles as $article)
     <article class="article-item">

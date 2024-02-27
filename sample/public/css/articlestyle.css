@@ -37,3 +37,6 @@ button {
     transform: translateX(-50%);
     border-radius: 30px;
 }
+.err_message {
+    color: red;
+}
