@@ -4,39 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/css/formstyle.css')  }}" >
-    <title>ユーザー登録画面</title>
+    <title>ユーザー情報編集画面</title>
 </head>
 <body>
-    <h2 class="title">ユーザー登録</h2>
-<form name="registform" action="/register" method="post" id="registform">
+<a href="/home" class="example">ホーム画面</a>
+@if (Auth::check())
+<h2 class="title">ユーザー情報編集</h2>
+<form name="changeform" action="/change" method="post">
     {{ csrf_field() }}
     <div class="cp_iptxt">
-        <input type="text" name="name" size="30" class="ef">
         <label>名前</label>
+        <input type="text" name="name" size="30" class="ef" value="{{ $user->name }}">
         <span class="err_message"> {{ $errors->first('name') }}</span>
-        <span class="focus_line"><i></i></span>
     </div>
     <div class="cp_iptxt">
-        <input type="text" name="email" size="30" class="ef">
         <label>メールアドレス</label>
+        <input type="text" name="email" size="30" class="ef" value="{{ $user->email }}">
         <span class="err_message"> {{ $errors->first('email') }}</span>
-        <span class="focus_line"><i></i></span>
     </div>
     <div class="cp_iptxt">
-        <input type="password" name="password" size="30" class="ef">
         <label>パスワード</label>
+        <input type="password" name="password" size="30" class="ef">
         <span class="err_message"> {{ $errors->first('password') }}</span>
-        <span class="focus_line"><i></i></span>
     </div>
     <div class="cp_iptxt">
-        <input type="password" name="password_confirmation" size="30" class="ef">
         <label>パスワード(確認)</label>
-        <span class="err_message"> {{ $errors->first('password_confirmation') }}</span>
-        <span class="focus_line"><i></i></span>
+        <input type="password" name="password_confirmation" size="30" class="ef">
     </div>
     <div class="cp_iptxt">
-    <button type="submit" name="action" value="send">送信</button>
+    <button type="submit" name="action" value="send">変更</button>
     </div>
 </form>
+@else
+@endif
 </body>
 </html>

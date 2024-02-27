@@ -35,6 +35,12 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
+
+Route::get('/change',[App\Http\Controllers\UserController::class, 'index'])
+    ->middleware('auth');
+Route::post('/change', [App\Http\Controllers\UserController::class, 'store'])
+    ->middleware('auth');
+
 Route::get('/edit', [App\http\Controllers\ArticleController::class, 'index'])
     ->name('edit.index');
 Route::get('/create', [App\Http\Controllers\ArticleController::class, 'create'])
