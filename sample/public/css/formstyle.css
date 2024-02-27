@@ -78,6 +78,7 @@
 	height: 100%;
 	transition: 0.6s;
 }
+
 .ef ~ label {
 	position: absolute;
 	z-index: -1;
@@ -111,4 +112,3 @@ button {
 .err_message {
     color: red;
 }
-
