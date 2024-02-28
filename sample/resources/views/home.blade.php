@@ -11,7 +11,7 @@
 @if (Auth::check())
     <p class="user">{{ \Auth::user()->name }} さん</p>
     <p><a href="/logout" class="example">ログアウト</a></p>
-    <p><a href="/auth" class="example">編集</a>
+    <p><a href="/change" class="example">編集</a>
     <p><a href="/edit" class="example">投稿</a>
 @else
     <p class="user_guest">ゲストさん</p>
