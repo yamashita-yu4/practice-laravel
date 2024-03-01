@@ -17,10 +17,9 @@ class UserController extends Controller
         return view('auth.change')->with('user',$user);
     }
 
-    public function update(User $user, UserUpdateRequest $request)
+    public function update(UserUpdateRequest $request)
     {
-        $id = Auth::id();
-        $user = User::find($id);
+        $user = Auth::user();
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
