@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/register', [App\Http\Controllers\RegisterController::class, 'create'])
     ->middleware('guest')
@@ -37,8 +37,9 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])
 
 
 Route::get('/change',[App\Http\Controllers\UserController::class, 'index'])
-    ->middleware('auth');
-Route::post('/change', [App\Http\Controllers\UserController::class, 'store'])
+    ->middleware('auth')
+    ->name('change');
+Route::post('/change', [App\Http\Controllers\UserController::class, 'update'])
     ->middleware('auth');
 
 Route::get('/edit', [App\http\Controllers\ArticleController::class, 'index'])
@@ -47,3 +48,4 @@ Route::get('/create', [App\Http\Controllers\ArticleController::class, 'create'])
     ->name('edit.create');
 Route::post('/articles', [App\http\Controllers\ArticleController::class, 'store'])
     ->name('edit.store');
+

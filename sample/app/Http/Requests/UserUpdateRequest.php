@@ -15,16 +15,30 @@ class UserUpdateRequest extends FormRequest
     {
         return true;
     }
+
+    /** フォーム属性の定義 */
+    public function attributes()
+    {
+        return [
+            'name' => '名前',
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
+        ];
+    }
+
     /** エラーメッセージの定義 */
     public function messages()
     {
         return [
-            'name.required' => '名前は必須項目です',
-            'email.required' => 'メールアドレスは必須項目です',
-            'email.email' => 'メールアドレスの形式で入力してください',
-            'email.unique' => 'すでに登録されているメールアドレスです',
-            'password.required' => 'パスワードは必須項目です',
-            'password.confirmed' => 'パスワードが一致しません。'
+            'name.required' => ':attributeは必須項目です',
+            'name.max' => ':attributeは最大:max文字まで入力できます',
+            'email.required' => ':attributeは必須項目です',
+            'email.email' => ':attributeの形式で入力してください',
+            'email.unique' => 'すでに登録されている:attributeです',
+            'password.required' => ':attributeは必須項目です',
+            'password.min' => ':attributeは:min文字以上入力してください',
+            'password.alpha-num' => ':attributeは英数字のみで入力してください',
+            'password.confirmed' => ':attributeが一致しません。'
         ];
     }
 
