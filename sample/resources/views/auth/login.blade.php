@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
-@include('layouts.head')
-<body>
+@extends('layouts.common')
+
+@section('style')
+{{ asset('/css/formstyle.css') }}
+@endsection
 
 <h2 class="title">ログイン</h2>
 <form name="loginform" action="{{ route('login') }}" method="post">
