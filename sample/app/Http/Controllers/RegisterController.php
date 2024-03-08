@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -32,8 +33,8 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $login = app(LoginController::class)->authenticate($request);
+        $user = Auth::login($user);
 
-        return view('home')->with('login',$login);
+        return view('home');
     }
 }

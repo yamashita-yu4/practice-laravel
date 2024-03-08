@@ -31,10 +31,12 @@ class UserRequest extends FormRequest
             'name.required' => ':attributeは必須項目です',
             'name.max' => ':attributeは最大:max文字まで入力できます',
             'email.required' => ':attributeは必須項目です',
+            'email.max' => ':attributeは最大:max文字まで入力できます',
             'email.email' => ':attributeの形式で入力してください',
             'email.unique' => 'すでに登録されている:attributeです',
             'password.required' => ':attributeは必須項目です',
             'password.min' => ':attributeは:min文字以上入力してください',
+            'password.max' => ':attributeは:max文字以下で入力してください',
             'password.alpha-num' => ':attributeは英数字のみで入力してください',
             'password.confirmed' => ':attributeが一致しません。'
         ];
