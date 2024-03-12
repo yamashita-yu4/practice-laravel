@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/css/formstyle.css')  }}" >
-    <title>ログイン画面</title>
-</head>
+@include('layouts.head')
 <body>
 
 <h2 class="title">ログイン</h2>
-<form name="loginform" action="/login" method="post">
+<form name="loginform" action="{{ route('login') }}" method="post">
     {{ csrf_field() }}
     <div class="cp_iptxt">
-        <input type="text" name="email" size="30" class="ef">
+        <input type="text" name="email" size="30" class="ef" value="{{ old('email') }}">
         <label>メールアドレス</label>
         <span class="focus_line"><i></i></span>
     </div>
