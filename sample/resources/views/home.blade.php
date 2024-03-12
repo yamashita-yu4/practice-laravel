@@ -1,7 +1,7 @@
 @extends('layouts.common')
 
 @section('style')
-{{ asset('/css/style.css') }}
+<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 @endsection
 
 @section('title')
@@ -14,7 +14,7 @@
     <p class="user">{{ \Auth::user()->name }} さん</p>
     <p><a href="{{ route('logout') }}" class="example">ログアウト</a></p>
     <p><a href="{{ route('change') }}" class="example">編集</a>
-    <p><a href="{{ route('edit.index') }}" class="example">投稿</a>
+    <p><a href="{{ route('article.index') }}" class="example">投稿</a>
 @else
     <p class="user_guest">ゲストさん</p>
     <p><a href="{{ route('login') }}" class="example">ログイン</a><br>
