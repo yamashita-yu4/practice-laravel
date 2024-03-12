@@ -1,52 +1,34 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/css/formstyle.css')  }}" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <title>ユーザー情報編集画面</title>
-</head>
-<body>
 <a href="{{ route('home') }}" class="example">ホーム画面</a>
+
+@extends('layouts.common')
+
+@section('style')
+<link rel="stylesheet" href="{{ asset('/css/formstyle.css') }}">
+@endsection
+
+@section('title')
+編集画面
+@endsection
+
+@section('script')
 @if(session('message'))
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
 	$(function () {
         toastr.success("{{ session('message') }}");
     });
 </script>
 @endif
+@endsection
 
+@section('contents')
+<h2 class="title">ユーザ情報編集</h2>
 @Auth
-<h2 class="title">ユーザー情報編集</h2>
 <form name="changeform" action="{{ route('change') }}" method="post">
-    {{ csrf_field() }}
-    <div class="cp_iptxt">
-        <label>名前</label>
-        <input type="text" name="name" size="30" class="ef" value="{{ old('name',$user->name) }}">
-        <span class="err_message"> {{ $errors->first('name') }}</span>
-    </div>
-    <div class="cp_iptxt">
-        <label>メールアドレス</label>
-        <input type="text" name="email" size="30" class="ef" value="{{ old('email', $user->email) }}">
-        <span class="err_message"> {{ $errors->first('email') }}</span>
-    </div>
-    <div class="cp_iptxt">
-        <label>パスワード</label>
-        <input type="password" name="password" size="30" class="ef">
-        <span class="err_message"> {{ $errors->first('password') }}</span>
-    </div>
-    <div class="cp_iptxt">
-        <label>パスワード(確認)</label>
-        <input type="password" name="password_confirmation" size="30" class="ef">
-    </div>
-    <div class="cp_iptxt">
-    <button type="submit" name="action" value="send">編集</button>
-    </div>
+@include('components.form')
 </form>
 @endAuth
-</body>
-</html>
+@endsection

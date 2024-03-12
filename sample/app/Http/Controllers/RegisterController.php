@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Controllers\LoginController;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -31,6 +32,8 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return view('home', compact('user'));
+        $login = app(LoginController::class)->authenticate($request);
+
+        return view('home')->with('login',$login);
     }
 }
